@@ -92,7 +92,7 @@ function setColor(hrs) {
   }
 }
 
-console.log(palette[1][0], palette[1][1]);
+// console.log(palette[1][0], palette[1][1]);
 // prettier-ignore
 const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
