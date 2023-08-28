@@ -1,0 +1,13 @@
+body {
+  font-family: "Hind", sans-serif;
+  font-family: "Space Mono", monospace;
+}
+
+.full-time {
+  font-weight: 700;
+  font-size: 13vw;
+}
+
+.full-date {
+  font-size: 4vw;
+}
