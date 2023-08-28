@@ -101,7 +101,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 (function refresh() {
   let currentDate = new Date();
-  // seconds.innerHTML = `${currentDate.getSeconds()}`.padStart(2, "0");
+  seconds.innerHTML = `${currentDate.getSeconds()}`.padStart(2, "0");
   minutes.innerHTML = `${currentDate.getMinutes()}`.padStart(2, "0");
   if (currentDate.getHours() === 0) {
     hours.innerHTML = `12`;
