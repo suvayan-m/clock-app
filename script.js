@@ -108,7 +108,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
     setColor(0);
   }
   if (currentDate.getHours() > 12) {
-    hours.innerHTML = `${currentDate.getHours() - 12}`;
+    hours.innerHTML = `${currentDate.getHours() - 12}`.padStart(2, "0");
     setColor(Number(`${currentDate.getHours()}`));
   }
   if (currentDate.getHours() >= 1 && currentDate.getHours() <= 9) {
