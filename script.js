@@ -27,55 +27,68 @@ const palette = {
 function setColor(hrs) {
   if (hrs >= 18 || (hrs <= 0 && hrs <= 5)) {
     document.querySelector("body").style.backgroundColor = `${palette[14][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[14][1]}`;
+    document.querySelector("h1").style.color = `${palette[14][1]}`;
+    document.querySelector("p").style.color = `${palette[14][1]}`;
   }
   if (hrs === 6) {
     document.querySelector("body").style.backgroundColor = `${palette[11][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[11][1]}`;
+    document.querySelector("h1").style.color = `${palette[11][1]}`;
+    document.querySelector("p").style.color = `${palette[11][1]}`;
   }
   if (hrs === 7) {
     document.querySelector("body").style.backgroundColor = `${palette[9][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[9][1]}`;
+    document.querySelector("h1").style.color = `${palette[9][1]}`;
+    document.querySelector("p").style.color = `${palette[9][1]}`;
   }
   if (hrs === 8) {
     document.querySelector("body").style.backgroundColor = `${palette[7][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[7][1]}`;
+    document.querySelector("h1").style.color = `${palette[7][1]}`;
+    document.querySelector("p").style.color = `${palette[7][1]}`;
   }
   if (hrs === 9) {
     document.querySelector("body").style.backgroundColor = `${palette[5][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[5][1]}`;
+    document.querySelector("h1").style.color = `${palette[5][1]}`;
+    document.querySelector("p").style.color = `${palette[5][1]}`;
   }
   if (hrs === 10) {
     document.querySelector("body").style.backgroundColor = `${palette[3][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[3][1]}`;
+    document.querySelector("h1").style.color = `${palette[3][1]}`;
+    document.querySelector("p").style.color = `${palette[3][1]}`;
   }
   if (hrs === 11) {
     document.querySelector("body").style.backgroundColor = `${palette[1][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[1][1]}`;
+    document.querySelector("h1").style.color = `${palette[1][1]}`;
+    document.querySelector("p").style.color = `${palette[1][1]}`;
   }
   if (hrs === 12) {
     document.querySelector("body").style.backgroundColor = `${palette[1][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[1][1]}`;
+    document.querySelector("h1").style.color = `${palette[1][1]}`;
+    document.querySelector("p").style.color = `${palette[1][1]}`;
   }
   if (hrs === 13) {
     document.querySelector("body").style.backgroundColor = `${palette[3][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[3][1]}`;
+    document.querySelector("h1").style.color = `${palette[3][1]}`;
+    document.querySelector("p").style.color = `${palette[3][1]}`;
   }
   if (hrs === 14) {
     document.querySelector("body").style.backgroundColor = `${palette[5][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[5][1]}`;
+    document.querySelector("h1").style.color = `${palette[5][1]}`;
+    document.querySelector("p").style.color = `${palette[5][1]}`;
   }
   if (hrs === 15) {
     document.querySelector("body").style.backgroundColor = `${palette[7][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[7][1]}`;
+    document.querySelector("h1").style.color = `${palette[7][1]}`;
+    document.querySelector("p").style.color = `${palette[7][1]}`;
   }
   if (hrs === 16) {
     document.querySelector("body").style.backgroundColor = `${palette[9][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[9][1]}`;
+    document.querySelector("h1").style.color = `${palette[9][1]}`;
+    document.querySelector("p").style.color = `${palette[9][1]}`;
   }
   if (hrs === 17) {
     document.querySelector("body").style.backgroundColor = `${palette[11][0]}`;
-    document.querySelector("h1", "p").style.color = `${palette[11][1]}`;
+    document.querySelector("h1").style.color = `${palette[11][1]}`;
+    document.querySelector("p").style.color = `${palette[11][1]}`;
   }
 }
 
@@ -88,11 +101,11 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 (function refresh() {
   let currentDate = new Date();
-  seconds.innerHTML = `${currentDate.getSeconds()}`.padStart(2, "0");
+  // seconds.innerHTML = `${currentDate.getSeconds()}`.padStart(2, "0");
   minutes.innerHTML = `${currentDate.getMinutes()}`.padStart(2, "0");
   if (currentDate.getHours() === 0) {
     hours.innerHTML = `12`;
-    setColor(12);
+    setColor(0);
   }
   if (currentDate.getHours() > 12) {
     hours.innerHTML = `${currentDate.getHours() - 12}`;
@@ -106,12 +119,16 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
     hours.innerHTML = `${currentDate.getHours()}`;
     setColor(Number(`${currentDate.getHours()}`));
   }
+  if (currentDate.getHours() === 12) {
+    hours.innerHTML = `${currentDate.getHours()}`;
+    setColor(Number(`${currentDate.getHours()}`));
+  }
   day.innerHTML = week[currentDate.getDay()];
   month.innerHTML = months[currentDate.getMonth()];
   date.innerHTML = `${currentDate.getDate()}`;
   year.innerHTML = `${currentDate.getFullYear()}`;
 
-  ampm.innerHTML = currentDate.getHours() > 12 ? "PM" : "AM";
+  ampm.innerHTML = currentDate.getHours() >= 12 ? "PM" : "AM";
   setTimeout(refresh, 1000);
 })();
 
@@ -153,3 +170,8 @@ function exitFullscreen() {
     document.msExitFullscreen();
   }
 }
+
+(function blink() {
+  document.querySelector(".separator").classList.toggle("blink");
+  setTimeout(blink, 500);
+})();

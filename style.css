@@ -5,9 +5,17 @@ body {
 
 .full-time {
   font-weight: 700;
-  font-size: 13vw;
+  font-size: 22vw;
 }
 
 .full-date {
   font-size: 4vw;
+}
+
+.ampm {
+  font-size: 9vw;
+}
+
+.blink {
+  opacity: 0.5;
 }
